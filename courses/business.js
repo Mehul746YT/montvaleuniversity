@@ -102,9 +102,9 @@ function finishExam() {
     let percentage = (score / questions.length) * 100;
     document.querySelector(".container").innerHTML = `
         <div class="card">
-            <h1>${percentage >= 5 ? "Congratulations!" : "Assessment Complete"}</h1>
+            <h1>${percentage >= 85 ? "Congratulations!" : "Assessment Complete"}</h1>
             <p>Your Final Score: ${percentage}%</p>
-            <button onclick="${percentage >= 5 ? 'askName()' : 'startExam()'}">${percentage >= 5 ? 'Generate Certificate' : 'Retry Exam'}</button>
+            <button onclick="${percentage >= 85 ? 'askName()' : 'startExam()'}">${percentage >= 85 ? 'Generate Certificate' : 'Retry Exam'}</button>
         </div>
     `;
 }
