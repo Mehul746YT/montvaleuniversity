@@ -100,6 +100,10 @@ function selectAnswer(isCorrect) {
 
 function finishExam() {
     let percentage = (score / questions.length) * 100;
+    
+    // Trigger the save function
+    saveBusinessAttempt(score, questions.length);
+
     document.querySelector(".container").innerHTML = `
         <div class="card">
             <h1>${percentage >= 85 ? "Congratulations!" : "Assessment Complete"}</h1>
@@ -176,4 +180,23 @@ function showCertificate(name, percentage) {
             btn.style.display = 'inline-block';
         });
     });
+}
+
+async function saveBusinessAttempt(score, total) {
+    const percentage = ((score / total) * 100).toFixed(2);
+    const uid = "MV-" + Math.floor(Math.random() * 999999999999); // Generates a unique ID for the attempt
+
+    try {
+        await db.collection("business_attempt").add({
+            studentUid: uid,
+            scoreObtained: score,
+            totalMarks: total,
+            percentage: parseFloat(percentage),
+            date: new Date().toLocaleDateString(),
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        console.log("Business Attempt recorded successfully.");
+    } catch (e) {
+        console.error("Error saving business attempt:", e);
+    }
 }
