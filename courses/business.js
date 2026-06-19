@@ -124,7 +124,7 @@ async function showCertificate(name, certId) {
             <h2 style="font-size: 26px; color: #555; margin: 0 0 10px 0;">Diploma of Proficiency in Business Administration</h2>
             <p style="font-size: 20px; margin: 0;">This is to certify that</p>
             <h3 style="font-size: 45px; margin: 5px 0; border-bottom: 3px solid #333; display: inline-block;">${name}</h3>
-            <p style="font-size: 20px; margin: 0;">has successfully completed his online course in business administration.</p>
+            <p style="font-size: 20px; margin: 0;">has successfully completed his/her online course in business administration.</p>
             <div style="position: absolute; bottom: 30px; left: 40px; right: 40px; display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #333; border-top: 1px solid #ccc; padding-top: 10px;">
                 <span><strong>ID:</strong> ${certId}</span>
                 <span><strong>Date:</strong> ${new Date().toLocaleDateString()}</span>
